@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-gateway
+    name: apigatewayservice
   cloud:
     consul:
       host: localhost
