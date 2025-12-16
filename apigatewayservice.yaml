@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: product-service
+              uri: lb://ProductService
+              predicates:
+                - Path=/products/**
+            - id: stock-service
+              uri: lb://StockService
+              predicates:
+                - Path=/stock/**
+  server:
+    port: 8080
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+otlp:
+  tracing:
+    endpoint: http://localhost:9411/api/v2/spans
+
