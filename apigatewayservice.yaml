@@ -6,17 +6,16 @@ spring:
       host: localhost
       port: 8500
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: product-service
-              uri: lb://ProductService
-              predicates:
-                - Path=/products/**
-            - id: stock-service
-              uri: lb://StockService
-              predicates:
-                - Path=/stock/**
+      routes:
+        - id: product-service
+          uri: lb://ProductService
+          predicates:
+            - Path=/products/**
+
+        - id: stock-service
+          uri: lb://StockService
+          predicates:
+            - Path=/stock/**
   server:
     port: 8080
 
