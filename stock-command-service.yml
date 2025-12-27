@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: StockCommandService
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: stockcommanddb
+server:
+  port: 8900
